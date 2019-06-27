@@ -1,0 +1,36 @@
+
+
+https://www.surveymonkey.com/r/5S5TNDL
+https://www.surveymonkey.com/r/LCSJ3HC
+
+https://github.com/synergy2411/travelex-node
+
+npm search
+npm init
+
+https://maps.googleapis.com/maps/api/geocode/json
+https://maps.googleapis.com/maps/api/geocode/json
+
+
+
+
+
+Join NPM community
+
+npm adduser
+> username : 
+> password : 
+> email :
+
+npm publish
+
+MAPBOX API : https://api.mapbox.com/geocoding/v5/mapbox.places/mumbai.json?access_token=pk.eyJ1Ijoic3luZXJneTI0MTEiLCJhIjoiY2p4NXc0cm53MDZoODQwbHFuNzdzMzV5NCJ9.DKIDo6bcG51yLXf2DmlYcQ
+FORECAST API : https://api.darksky.net/forecast/473fe696d21e65026547b2d50b56014c/72.83333,18.96667
+
+
+
+
+
+
+
+

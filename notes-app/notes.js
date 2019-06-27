@@ -17,15 +17,41 @@ const saveNote = (notes) => {
 
 const addNote = (title, body) => {
     const notes = loadAllNotes();
-    notes.push({title, body});
-    saveNote(notes);
+    const duplicateNotes = notes.filter(note => note.title == title);
+    if (duplicateNotes.length == 0) {
+        notes.push({ title, body });
+        debugger;
+        saveNote(notes);
+    } else {
+        console.log(chalk.red("Duplicate Title. Try again!"))
+    }
+
 }
 
-const readNote = (title) => { }
-const removeNote = (title) => { }
+const readNote = (title) => {
+    const notes = loadAllNotes();
+    const note = notes.filter(note => note.title == title);
+    if (note.length > 0) {
+        console.log(chalk.blue("Title : " + note[0].title))
+        console.log(chalk.blue("Body : " + note[0].body))
+    }else{
+        console.log(chalk.red("NOT FOUND"));
+    }
+
+}
+const removeNote = (title) => {
+    const notes = loadAllNotes();
+    const updateNotes = notes.filter(note => note.title != title);
+    if(updateNotes.length != notes.length){
+        saveNote(updateNotes);
+    }else{
+        console.log(chalk.red("NOT FOUND"));
+    }
+    
+}
 
 const listNote = () => {
-    const notes =  loadAllNotes();
+    const notes = loadAllNotes();
     console.log(chalk.inverse.green("MY NOTES"))
     console.log("-------------------");
 
@@ -34,7 +60,7 @@ const listNote = () => {
         console.log(chalk.blue("Body : ", note.body))
         console.log(chalk.grey("***********************"));
     })
- }
+}
 
 module.exports = {
     addNote,
