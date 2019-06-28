@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="cntainer">
+        <h1 class="text-center text-warning">Weather App</h1>
+
+        <form>
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-3">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <input type="search" 
+                                    name="address" 
+                                    class="form-control"
+                                    id="address">
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <button
+                                    id="getWeather" 
+                                    class="btn btn-success btn-block">
+                                    Predict
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <hr>
+
+        <div id="prediction"></div>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+    
+    $(document).ready(function(event){
+        $("#getWeather").on("click", function(event){
+            event.preventDefault();
+            const address = $("#address").val();
+            $.ajax({
+                method : "GET",
+                url : "/weather?address="+address,
+                success : function(response){
+                    console.log(response);
+                    let div = document.createElement("div");
+                    div.innerHTML = "<h2>Location : " + response.placeName + 
+                            "</h2> <br/> "  + "<h3>" + response.summary + "</h3>";
+                    div.setAttribute("class", "container");
+                    $("#prediction").append(div);
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            })
+        })
+        
+    })
+
+    </script>
+</body>
+
+</html>
