@@ -29,6 +29,30 @@ FORECAST API : https://api.darksky.net/forecast/473fe696d21e65026547b2d50b56014c
 
 
 
+mlab : 
+mongodb://<dbuser>:<dbpassword>@ds245387.mlab.com:45387/users_db
+
+mongodb://scott:tiger123@ds245387.mlab.com:45387/users_db
+
+id : scott
+pass : tiger123
+
+
+
+
+
+npm init -y
+npm i yargs request --save
+
+
+
+
+
+
+
+
+
+
 
 
 
