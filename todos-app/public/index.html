@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h1 class="text-center">Hello World</h1>
+    <h1 class="text-center">Todo App</h1>
 
     <div class="container">
         
@@ -75,12 +75,12 @@
 
                     todos.forEach(todo => {
                         const div = document.createElement("div");
-                        div.innerHTML = "<h3> " + todo.label + "</h3>";
+                        div.innerHTML = "<h3> " + todo.label.toUpperCase() + "</h3>";
                         div.setAttribute("class", "container well");
                         $("#main").append(div);
                     })
                 },
-                error: function () {
+                error: function (error) {
                     console.log(error)
                 }
             })
