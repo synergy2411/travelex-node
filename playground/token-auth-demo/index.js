@@ -22,19 +22,17 @@ app.get("/login", (req, res)=>{
 function authenticate(req, res, next){
     let token = null;
     const bearerToken = req.headers['authorization'];
-    console.log(bearerToken);
     if(bearerToken != undefined){
         const bearers = bearerToken.split(" ");
         token = bearers[1];
         req.token = token;
         next();
     }else{
-        res.send({error : "No token found"})
+        return res.send({error : "No token found"})
     }
 }
 
 app.get("/api/protected", authenticate,  (req, res)=>{
-
     const user = jwt.verify(req.token, "My_super_secret_key");
     if(user){
         return res.send({
